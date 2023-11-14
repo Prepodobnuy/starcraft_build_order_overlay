@@ -3,7 +3,7 @@
 Overlay for StarCraft II which shows build order  
 
 ## Dependencies:
-```keyboard python```
+```keyboard Pillow```
 
 ## Quick guide  
 ### Installation
@@ -11,14 +11,14 @@ Overlay for StarCraft II which shows build order
 download and install python  
 https://www.python.org/downloads/windows/  
 open cmd and write there  
-```pip install keyboard```  
+```pip install keyboard Pillow```  
 download build helper  
 ```git clone https://github.com/Prepodobnuy/sc_build_helper.git```  
 run the main.py file.
 #### Linux
 install python  
 install dependencies  
-```python3 -m pip install keyboard```   
+```python3 -m pip install keyboard Pillow```   
 download build helper  
 ```git clone https://github.com/Prepodobnuy/sc_build_helper.git```  
 and run app with sudo
