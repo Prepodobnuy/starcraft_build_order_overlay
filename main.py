@@ -5,10 +5,34 @@ from PIL import ImageTk, Image
 
 import keyboard
 
-from build_parser import parse as build_parse
-
 
 run = True
+
+def build_parse(build_name : str):
+    with open(f"builds/{build_name}") as file:
+        data = file.read().split('\n')
+    
+    limit_list = []
+    time_list = []
+    timestr_list = []
+    unit_list = []
+
+    for i in data:
+        if i != ['']:
+            part = i.split('  ')
+            
+            if ':' in part[1]:
+                time = part[1].split(':')
+                time = (int(time[0]) * 60) + int(time[1])
+            else:
+                time = int(part[1])
+
+            time_list.append(time)
+            limit_list.append(part[0])
+            timestr_list.append(part[1])
+            unit_list.append(part[2])
+
+    return limit_list, time_list, timestr_list, unit_list
 
 class App(tk.Tk):
     def __init__(self) -> None:
@@ -115,10 +139,9 @@ class App(tk.Tk):
         time.sleep(0.25)
 
         self.load_build()
+        self.get_build_lists()
 
         self.update()
-        self.get_build_lists()
-    
 
     def end(self):
         global run
@@ -171,7 +194,7 @@ class App(tk.Tk):
 
     # fill icons and text fields func
     def fill_images_with_icons(self, index: int) -> None:
-        double_names = ["Ghost Academy", "Gravitic Drive", "Hydralisk Den", "Roach Warren", "Robotics Bay", "Robotics Facility", "Reactor"
+        double_names = ["Ghost Academy", "Gravitic Drive", "Hydralisk", "Roach Warren", "Robotics Bay", "Robotics Facility", "Reactor"
             "Terran Infantry Armor 1", "Terran Infantry Armor 2", "Terran Infantry Armor 3",
             "Terran Infantry Weapons 1", "Terran Infantry Weapons 2", "Terran Infantry Weapons 3",
             "Terran Ship Weapons 1", "Terran Ship Weapons 2", "Terran Ship Weapons 3",
