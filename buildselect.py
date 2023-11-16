@@ -189,9 +189,11 @@ class App(tk.Tk):
 
         result = "\n".join(result)
 
-        with open(f"builds/{self.online_builds[index]}.txt", "w+") as build:
+        filename = " ".join(self.online_builds[index].split('/'))
+
+        with open(f"builds/{filename}.txt", "w+") as build:
             build.write(result)
-            print(self.online_builds[index] + " installed")
+        print(self.online_builds[index] + " installed")
 
         self.builds = []
         self.builds_names = []
