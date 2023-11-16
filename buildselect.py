@@ -35,7 +35,7 @@ class App(tk.Tk):
         # config
         self.configure(bg="#18181c")
         self.resizable(False, False)
-        self.geometry(f"450x250")
+        self.geometry(f"450x240") # 250
         self.title("Build Select")
 
         self.style = ttk.Style(self)
@@ -275,11 +275,11 @@ class App(tk.Tk):
                 tk.Button(command=delete_build_func, anchor="w", justify="left", text="Del", width=2, height=1, bg="#18181c", fg="white", relief=tk.FLAT).place(x=363, y=0 + (index*35))
                 break
 
-        self.install_build_offline = tk.Button(text="Install local build", command=self.install_local_build, relief=tk.FLAT, bg="#18181c", fg="white", height=1, width=15)
+        self.install_build_offline = tk.Button(text="Install local build", command=self.install_local_build, relief=tk.FLAT, bg="#18181c", fg="white", height=1, width=25)
         self.install_build_online = tk.Button(text="Browse for builds", command=lambda: (self.destroy_all_objects(), self.place_online_objects()), relief=tk.FLAT, bg="#18181c", fg="white", height=1, width=15)
 
-        self.install_build_offline.place(x=317, y=219)
-        self.install_build_online.place(x=0, y=219)
+        self.install_build_offline.place(x=247, y=209)
+        self.install_build_online.place(x=0, y=209)
 
         tk.Button(command= self.move_offline_list_forward,text="/\\", width=2, height=1, bg="#18181c", fg="white", relief=tk.FLAT).place(x=408, y=140)
 
@@ -295,13 +295,13 @@ class App(tk.Tk):
         self.yours = ttk.OptionMenu(self, self.your_race_option_var, self.options[findex], *self.options, style="Custom.TMenubutton")
         self.enemy = ttk.OptionMenu(self, self.enemy_race_option_var, self.options[sindex], *self.options, style="Custom.TMenubutton")
 
-        self.yours.place(x=250, y=190)
-        self.enemy.place(x=360, y=190)
+        self.yours.place(x=247, y=175)
+        self.enemy.place(x=360, y=175)
 
-        tk.Label(text="Vs", background="#18181c", foreground="white").place(x=342, y=190)
+        tk.Label(text="Vs", background="#18181c", foreground="white").place(x=340, y=178)
 
-        tk.Button(command=self.get_online_builds, text="Find Builds", relief=tk.FLAT, bg="#18181c", fg="white", height=1, width=15).place(x=317, y=219)
-        tk.Button(command=lambda: (self.destroy_all_objects(), self.place_offline_objects()), text="Back", relief=tk.FLAT, bg="#18181c", fg="white", height=1, width=15).place(x=0, y=219)
+        tk.Button(command=self.get_online_builds, text="Find Builds", relief=tk.FLAT, bg="#18181c", fg="white", height=1, width=25).place(x=247, y=209)
+        tk.Button(command=lambda: (self.destroy_all_objects(), self.place_offline_objects()), text="Back", relief=tk.FLAT, bg="#18181c", fg="white", height=1, width=15).place(x=0, y=209)
 
         if self.online_builds != []:
             

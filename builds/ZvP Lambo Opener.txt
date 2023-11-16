@@ -1,0 +1,22 @@
+12  0:00  Drone
+13  0:12  Overlord
+13  0:16  Drone
+14  0:30  Drone x2
+16  0:48  Hatchery
+15  0:51  Drone x2
+17  0:59  Drone
+18  1:09  Extractor
+17  1:14  Spawning Pool
+17  1:16  Drone x2
+18  1:29  Drone
+20  1:52  Overlord
+20  2:00  Queen x2
+25  2:01  Zergling x4
+26  2:14  Metabolic Boost
+32  2:38  Hatchery
+32  2:45  Overlord
+32  2:52  Queen
+36  3:05  Overlord
+36  3:06  Queen
+43  3:23  Overlord
+44  3:29  Queen

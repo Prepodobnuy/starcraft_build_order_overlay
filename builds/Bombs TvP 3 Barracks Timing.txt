@@ -1,0 +1,78 @@
+12  0:00  SCV
+13  0:13  SCV
+14  0:17  Supply Depot
+14  0:25  SCV
+15  0:39  SCV
+15  0:40  Barracks
+16  0:43  Refinery
+16  0:51  SCV
+17  1:03  SCV
+18  1:15  SCV
+19  1:27  Marine
+19  1:28  Orbital Command
+19  1:29  Supply Depot
+20  1:45  Marine
+21  1:54  SCV
+21  2:00  Command Center
+22  2:03  Marine
+22  2:06  SCV
+24  2:14  Bunker
+24  2:15  Barracks
+24  2:19  SCV
+24  2:21  Marine
+26  2:28  Barracks
+27  2:39  Engineering Bay
+27  2:41  Barracks Reactor
+29  3:03  Barracks Tech Lab
+29  3:11  Orbital Command
+30  3:16  Barracks Tech Lab
+30  3:18  Marine x2
+33  3:23  Stimpack
+33  3:34  Combat Shield, Marauder
+36  3:37  Marine x2
+39  3:43  Supply Depot
+39  3:44  Marauder
+43  3:56  Marauder
+43  4:00  Supply Depot
+46  4:05  Marine x2
+46  4:07  Supply Depot
+46  4:09  Marauder
+52  4:17  Marauder
+52  4:20  Missile Turret
+58  4:35  Marauder
+63  4:46  Marauder
+67  4:53  Refinery x3
+67  4:57  Marauder
+75  5:18  Marauder x2
+78  5:29  Factory
+83  5:52  Concussive Shells
+83  5:54  Terran Infantry Weapons Level 1
+90  6:16  Starport, Factory Reactor
+96  6:32  Command Center
+106  6:58  Factory Reactor
+106  6:59  Medivac x2
+115  7:11  Engineering Bay
+115  7:12  Armory
+123  7:31  Barracks x2, Medivac x2
+130  7:38  Widow Mine x2
+135  7:45  Orbital Command
+143  7:59  Terran Infantry Weapons Level 2
+143  8:00  Terran Infantry Armor Level 1
+143  8:01  Widow Mine x2
+143  8:03  Medivac
+156  8:21  Refinery x2
+157  8:44  Medivac x2
+157  8:45  Widow Mine x2
+162  9:13  Widow Mine x2
+162  9:14  Medivac x2
+160  9:23  Barracks Tech Lab x2
+156  9:30  Command Center
+159  9:35  Ghost Academy
+149  9:42  Widow Mine x2
+151  9:45  Medivac
+165  10:05  Enhanced Shockwaves
+165  10:09  Terran Infantry Armor Level 2
+196  11:00  Barracks x3
+179  11:40  Liberator x2
+188  11:51  Engineering Bay x3
+188  11:53  Barracks Tech Lab x3
