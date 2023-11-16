@@ -189,7 +189,7 @@ class App(tk.Tk):
 
         result = "\n".join(result)
 
-        filename = " ".join(self.online_builds[index].split('/'))
+        filename = " ".join(self.online_builds[index].split('/')) if '/' in self.online_builds[index] else self.online_builds[index]
 
         with open(f"builds/{filename}.txt", "w+") as build:
             build.write(result)
