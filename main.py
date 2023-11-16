@@ -46,11 +46,11 @@ class App(tk.Tk):
         self.configure(bg="#18181c")
 
         # build info labels
-        self.last_order = tk.Label(self, anchor="w", text="", font=("Arial", 11), fg="#b5b5b5", bg="#18181c", highlightthickness=0)
-        self.prev_order = tk.Label(self, anchor="w", text="", font=("Arial", 11), fg="#b5b5b5", bg="#18181c", highlightthickness=0)
-        self.curr_order = tk.Label(self, anchor="w", text="", font=("Arial", 11), fg="white", bg="#18181c", highlightthickness=0)
-        self.next_order = tk.Label(self, anchor="w", text="", font=("Arial", 11), fg="#b5b5b5", bg="#18181c", highlightthickness=0)
-        self.nwst_order = tk.Label(self, anchor="w", text="", font=("Arial", 11), fg="#b5b5b5", bg="#18181c", highlightthickness=0)
+        self.last_order = tk.Label(self, anchor="w", text="ctrl + b -> build select", font=("Arial", 11), fg="#b5b5b5", bg="#18181c", highlightthickness=0)
+        self.prev_order = tk.Label(self, anchor="w", text="ctrl + a -> start/stop timer", font=("Arial", 11), fg="#b5b5b5", bg="#18181c", highlightthickness=0)
+        self.curr_order = tk.Label(self, anchor="w", text="GLHF!", font=("Arial", 11), fg="white", bg="#18181c", highlightthickness=0)
+        self.next_order = tk.Label(self, anchor="w", text="ctrl + p -> pause timer", font=("Arial", 11), fg="#b5b5b5", bg="#18181c", highlightthickness=0)
+        self.nwst_order = tk.Label(self, anchor="w", text="ctrl + c -> exit", font=("Arial", 11), fg="#b5b5b5", bg="#18181c", highlightthickness=0)
         
         self.last_order.place(x=23, y=0)
         self.prev_order.place(x=23, y=25)
@@ -123,14 +123,22 @@ class App(tk.Tk):
             
             self.load_build()
 
-            self.get_build_lists()
-            self.fill_images_with_icons(0)
+            if self.build == "":
+                self.curr_order.configure(text="No Build is selected")
 
-            self.play()
+            if self.build in os.listdir("builds"):
 
-            self.clear_info()
-            print("stop")
-            time.sleep(0.25)
+                self.get_build_lists()
+                self.fill_images_with_icons(0)
+
+                self.play()
+
+                self.clear_info()
+                print("stop")
+                time.sleep(0.25)
+            
+            else:
+                self.curr_order.configure(text="Selected build is not found")
 
     def change_build(self) -> None:
         print('changing build...')
@@ -139,7 +147,6 @@ class App(tk.Tk):
         time.sleep(0.25)
 
         self.load_build()
-        self.get_build_lists()
 
         self.update()
 
@@ -355,19 +362,15 @@ class App(tk.Tk):
                 if self.total_time == timing and rdy:
                     index = self.time_list.index(timing)
 
-                    try:
-                        self.place_order_to_labels(index)
-                    except IndexError:
-                        ...
-                    try:
-                        self.fill_images_with_icons(index)
-                    except IndexError:
-                        ...
+                    try: self.place_order_to_labels(index)
+                    except IndexError: ...
                     
-                    try:
-                        print(self.limit_list[index], self.timestr_list[index], self.unit_list[index])
-                    except IndexError:
-                        ...
+                    try: self.fill_images_with_icons(index)
+                    except IndexError: ...
+                    
+                    try:print(self.limit_list[index], self.timestr_list[index], self.unit_list[index])
+                    except IndexError: ...
+                    
                     rdy = False
 
                     break

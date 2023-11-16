@@ -53,11 +53,31 @@ class App(tk.Tk):
 
         self.place_offline_objects()
 
-    def destroy_all_objects(self) -> None:
-        for widget in self.winfo_children():
-            widget.destroy()
+    def move_online_list_forward(self) -> None:
+        # list scrolling function for online window
+        b_toappend = self.online_builds.pop(0)
+        h_toappend = self.online_builds_hrefs.pop(0)
 
-    def get_online_builds(self):
+        self.online_builds.append(b_toappend)
+        self.online_builds_hrefs.append(h_toappend)
+
+        self.destroy_all_objects()
+        self.place_online_objects()
+
+    def move_offline_list_forward(self) -> None:
+        # list scrolling function for offline window
+        b_toappend = self.builds.pop(0)
+        h_toappend = self.builds_names.pop(0)
+
+        self.builds.append(b_toappend)
+        self.builds_names.append(h_toappend)
+
+        self.destroy_all_objects()
+        self.place_offline_objects()
+
+       
+    def get_online_builds(self) -> None:
+        # function takes list of build orders from spawningtool.com
         self.your_race_option_var = self.your_race_option_var.get()
         self.enemy_race_option_var = self.enemy_race_option_var.get()
 
@@ -140,41 +160,8 @@ class App(tk.Tk):
         self.destroy_all_objects()
         self.place_online_objects()
 
-    def place_online_objects(self) -> None:
-
-        self.your_race_option_var = tk.StringVar()
-        self.enemy_race_option_var = tk.StringVar()
-        self.options = ["Any", "Terran", "Zerg", "Protoss"]
-
-        findex = self.options.index(self.your_race_selected)
-        sindex = self.options.index(self.enemy_race_selected)
-
-        self.yours = ttk.OptionMenu(self, self.your_race_option_var, self.options[findex], *self.options, style="Custom.TMenubutton")
-        self.enemy = ttk.OptionMenu(self, self.enemy_race_option_var, self.options[sindex], *self.options, style="Custom.TMenubutton")
-
-        self.yours.place(x=250, y=190)
-        self.enemy.place(x=360, y=190)
-
-        tk.Label(text="Vs", background="#18181c", foreground="white").place(x=342, y=190)
-
-        tk.Button(command=self.get_online_builds, text="Find Builds", relief=tk.FLAT, bg="#18181c", fg="white", height=1, width=15).place(x=317, y=219)
-        tk.Button(command=lambda: (self.destroy_all_objects(), self.place_offline_objects()), text="Back", relief=tk.FLAT, bg="#18181c", fg="white", height=1, width=15).place(x=0, y=219)
-
-        if self.online_builds != []:
-            
-            for index, build in enumerate(self.online_builds):
-                select_build_func = lambda i=index: self.download_online_build(i)
-
-                if index != 4:
-                    tk.Button(command=select_build_func, anchor="w", justify="left", text=build, width=60, height=1, bg="#18181c", fg="white", relief=tk.FLAT).place(x=0, y=0 + (index*35))
-
-                if index == 4:
-                    tk.Button(command=select_build_func, anchor="w", justify="left", text=build, width=55, height=1, bg="#18181c", fg="white", relief=tk.FLAT).place(x=0, y=0 + (index*35))
-                    break
-            
-            tk.Button(command= self.move_online_list_forward,text="/\\", width=1, height=1, bg="#18181c", fg="white", relief=tk.FLAT).place(x=415, y=140)
-       
     def download_online_build(self, index) -> None:
+        # function is downloading selected build order from spawningtool.com
         url = "https://lotv.spawningtool.com" + self.online_builds_hrefs[index]
         response = requests.get(url)
         soup = BeautifulSoup(response.text, 'html.parser')
@@ -206,51 +193,9 @@ class App(tk.Tk):
         
         self.destroy_all_objects()
         self.place_online_objects()
-
-    def place_offline_objects(self) -> None:
-            
-        for index, build in enumerate(self.builds_names):
-            select_build_func = lambda i=index: self.select_build(i)
-            delete_build_func = lambda i=index: self.delete_build(i)
-
-            if index != 4:
-                tk.Button(command=select_build_func, anchor="w", justify="left", text=build, width=55, height=1, bg="#18181c", fg="white", relief=tk.FLAT).place(x=0, y=0 + (index*35))
-                tk.Button(command=delete_build_func, anchor="w", justify="left", text="Del", width=2, height=1, bg="#18181c", fg="white", relief=tk.FLAT).place(x=408, y=0 + (index*35))
-
-            if index == 4:
-                tk.Button(command=select_build_func, anchor="w", justify="left", text=build, width=48, height=1, bg="#18181c", fg="white", relief=tk.FLAT).place(x=0, y=0 + (index*35))
-                tk.Button(command=delete_build_func, anchor="w", justify="left", text="Del", width=2, height=1, bg="#18181c", fg="white", relief=tk.FLAT).place(x=363, y=0 + (index*35))
-                break
-
-        self.install_build_offline = tk.Button(text="Install local build", command=self.install_local_build, relief=tk.FLAT, bg="#18181c", fg="white", height=1, width=15)
-        self.install_build_online = tk.Button(text="Browse for builds", command=lambda: (self.destroy_all_objects(), self.place_online_objects()), relief=tk.FLAT, bg="#18181c", fg="white", height=1, width=15)
-
-        self.install_build_offline.place(x=317, y=219)
-        self.install_build_online.place(x=0, y=219)
-
-        tk.Button(command= self.move_offline_list_forward,text="/\\", width=2, height=1, bg="#18181c", fg="white", relief=tk.FLAT).place(x=408, y=140)
-
-    def move_online_list_forward(self) -> None:
-        b_toappend = self.online_builds.pop(0)
-        h_toappend = self.online_builds_hrefs.pop(0)
-
-        self.online_builds.append(b_toappend)
-        self.online_builds_hrefs.append(h_toappend)
-
-        self.destroy_all_objects()
-        self.place_online_objects()
-
-    def move_offline_list_forward(self) -> None:
-        b_toappend = self.builds.pop(0)
-        h_toappend = self.builds_names.pop(0)
-
-        self.builds.append(b_toappend)
-        self.builds_names.append(h_toappend)
-
-        self.destroy_all_objects()
-        self.place_offline_objects()
-
+    
     def install_local_build(self) -> None:
+        # function is parse and move .txt build order file into builds/
         filepath = filedialog.askopenfilename(title="Add build", filetypes=[("Text Files", "*.txt"), ("All Files", "*.*")])
 
         if filepath:
@@ -286,14 +231,13 @@ class App(tk.Tk):
                 self.destroy_all_objects()
                 self.place_offline_objects()
 
-            except BaseException as e:
-                ...
-            
+            except BaseException: ...
+
     def delete_build(self, index:int) -> None:
-        try:
-            os.remove("builds/" + builds[index])
-        except BaseException:
-            ...
+        # function is deletes build order
+        try: os.remove("builds/" + builds[index])
+        except BaseException: ...
+        
         print(self.builds[index].split('.')[0] + " deleted")
         self.builds.pop(index)
         self.builds_names.pop(index)
@@ -302,6 +246,7 @@ class App(tk.Tk):
         self.place_offline_objects()
         
     def select_build(self, index:int) -> None:
+        # function is selects build order
         with open("selected_build", "w+") as file:
             file.write(self.builds[index])
         print(self.builds[index].split('.')[0] + " selected")
@@ -313,6 +258,69 @@ class App(tk.Tk):
         self.builds_names[index] = "Selected"
         self.destroy_all_objects()
         self.place_offline_objects()
+
+    # place funcs
+    def place_offline_objects(self) -> None:
+        # function is plasing widgets into offline window
+        for index, build in enumerate(self.builds_names):
+            select_build_func = lambda i=index: self.select_build(i)
+            delete_build_func = lambda i=index: self.delete_build(i)
+
+            if index != 4:
+                tk.Button(command=select_build_func, anchor="w", justify="left", text=build, width=55, height=1, bg="#18181c", fg="white", relief=tk.FLAT).place(x=0, y=0 + (index*35))
+                tk.Button(command=delete_build_func, anchor="w", justify="left", text="Del", width=2, height=1, bg="#18181c", fg="white", relief=tk.FLAT).place(x=408, y=0 + (index*35))
+
+            if index == 4:
+                tk.Button(command=select_build_func, anchor="w", justify="left", text=build, width=48, height=1, bg="#18181c", fg="white", relief=tk.FLAT).place(x=0, y=0 + (index*35))
+                tk.Button(command=delete_build_func, anchor="w", justify="left", text="Del", width=2, height=1, bg="#18181c", fg="white", relief=tk.FLAT).place(x=363, y=0 + (index*35))
+                break
+
+        self.install_build_offline = tk.Button(text="Install local build", command=self.install_local_build, relief=tk.FLAT, bg="#18181c", fg="white", height=1, width=15)
+        self.install_build_online = tk.Button(text="Browse for builds", command=lambda: (self.destroy_all_objects(), self.place_online_objects()), relief=tk.FLAT, bg="#18181c", fg="white", height=1, width=15)
+
+        self.install_build_offline.place(x=317, y=219)
+        self.install_build_online.place(x=0, y=219)
+
+        tk.Button(command= self.move_offline_list_forward,text="/\\", width=2, height=1, bg="#18181c", fg="white", relief=tk.FLAT).place(x=408, y=140)
+
+    def place_online_objects(self) -> None:
+        # function is plasing widgets into online window
+        self.your_race_option_var = tk.StringVar()
+        self.enemy_race_option_var = tk.StringVar()
+        self.options = ["Any", "Terran", "Zerg", "Protoss"]
+
+        findex = self.options.index(self.your_race_selected)
+        sindex = self.options.index(self.enemy_race_selected)
+
+        self.yours = ttk.OptionMenu(self, self.your_race_option_var, self.options[findex], *self.options, style="Custom.TMenubutton")
+        self.enemy = ttk.OptionMenu(self, self.enemy_race_option_var, self.options[sindex], *self.options, style="Custom.TMenubutton")
+
+        self.yours.place(x=250, y=190)
+        self.enemy.place(x=360, y=190)
+
+        tk.Label(text="Vs", background="#18181c", foreground="white").place(x=342, y=190)
+
+        tk.Button(command=self.get_online_builds, text="Find Builds", relief=tk.FLAT, bg="#18181c", fg="white", height=1, width=15).place(x=317, y=219)
+        tk.Button(command=lambda: (self.destroy_all_objects(), self.place_offline_objects()), text="Back", relief=tk.FLAT, bg="#18181c", fg="white", height=1, width=15).place(x=0, y=219)
+
+        if self.online_builds != []:
+            
+            for index, build in enumerate(self.online_builds):
+                select_build_func = lambda i=index: self.download_online_build(i)
+
+                if index != 4:
+                    tk.Button(command=select_build_func, anchor="w", justify="left", text=build, width=60, height=1, bg="#18181c", fg="white", relief=tk.FLAT).place(x=0, y=0 + (index*35))
+
+                if index == 4:
+                    tk.Button(command=select_build_func, anchor="w", justify="left", text=build, width=55, height=1, bg="#18181c", fg="white", relief=tk.FLAT).place(x=0, y=0 + (index*35))
+                    break
+            
+            tk.Button(command= self.move_online_list_forward,text="/\\", width=1, height=1, bg="#18181c", fg="white", relief=tk.FLAT).place(x=415, y=140)
+
+    def destroy_all_objects(self) -> None:
+        # function is deletes every windget from window
+        for widget in self.winfo_children():
+            widget.destroy()
 
 if __name__ == "__main__":
     builds = []
