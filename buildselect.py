@@ -306,11 +306,11 @@ class App(tk.Tk):
             file.write(self.builds[index])
         print(self.builds[index].split('.')[0] + " selected")
 
-        for i in range(len(builds_names)):
+        for i in range(len(self.builds_names)):
             if self.builds_names[i] == "Selected":
                 self.builds_names[i] = self.builds[i].split('.')[0]
                 break
-        builds_names[index] = "Selected"
+        self.builds_names[index] = "Selected"
         self.destroy_all_objects()
         self.place_offline_objects()
 
