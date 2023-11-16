@@ -190,6 +190,7 @@ class App(tk.Tk):
         result = "\n".join(result)
 
         filename = " ".join(self.online_builds[index].split('/')) if '/' in self.online_builds[index] else self.online_builds[index]
+        filename = " ".join(self.online_builds[index].split('.')) if '.' in self.online_builds[index] else filename
 
         with open(f"builds/{filename}.txt", "w+") as build:
             build.write(result)
@@ -199,6 +200,7 @@ class App(tk.Tk):
         self.builds_names = []
 
         for build in os.listdir("builds"):
+            print(build)
             self.builds.append(build)
             self.builds_names.append(build.split('.')[0])
         
@@ -276,10 +278,10 @@ class App(tk.Tk):
                 with open('builds/'+name, "w+") as file:
                     file.write("\n".join(result))
                 
-                if not name in builds:
+                if not name in self.builds:
                     print(name.split('.')[0] + ' added')
-                    builds.append(name)
-                    builds_names.append(name.split('.')[0])
+                    self.builds.append(name)
+                    self.builds_names.append(name.split('.')[0])
 
                 self.destroy_all_objects()
                 self.place_offline_objects()
@@ -292,21 +294,21 @@ class App(tk.Tk):
             os.remove("builds/" + builds[index])
         except BaseException:
             ...
-        print(builds[index].split('.')[0] + " deleted")
-        builds.pop(index)
-        builds_names.pop(index)
+        print(self.builds[index].split('.')[0] + " deleted")
+        self.builds.pop(index)
+        self.builds_names.pop(index)
 
         self.destroy_all_objects()
         self.place_offline_objects()
         
     def select_build(self, index:int) -> None:
         with open("selected_build", "w+") as file:
-            file.write(builds[index])
-        print(builds[index].split('.')[0] + " selected")
+            file.write(self.builds[index])
+        print(self.builds[index].split('.')[0] + " selected")
 
         for i in range(len(builds_names)):
-            if builds_names[i] == "Selected":
-                builds_names[i] = builds[i].split('.')[0]
+            if self.builds_names[i] == "Selected":
+                self.builds_names[i] = self.builds[i].split('.')[0]
                 break
         builds_names[index] = "Selected"
         self.destroy_all_objects()
