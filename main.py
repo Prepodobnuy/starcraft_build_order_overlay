@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter import ttk
 import time
 import os
 from PIL import ImageTk, Image
@@ -45,12 +46,29 @@ class App(tk.Tk):
         self.attributes("-topmost", True)
         self.configure(bg="#18181c")
 
+        # styles
+        self.exit_button_style = ttk.Style()
+        self.exit_button_style.configure("Exit.TButton", foreground="white", background="#18181c", relief=tk.FLAT,  height=1, width=2)
+        self.exit_button_style.map("Exit.TButton", foreground=[("active", "#d14343")], background=[("active", "#18181c")])
+
+        self.prev_next_order_button_style = ttk.Style()
+        self.prev_next_order_button_style.configure("Options.TButton", foreground="white", background="#18181c", relief=tk.FLAT,  height=1, width=2)
+        self.prev_next_order_button_style.map("Options.TButton", foreground=[("active", "#707efa")], background=[("active", "#18181c")])
+
+        self.prev_next_order_button_style = ttk.Style()
+        self.prev_next_order_button_style.configure("Pause.TButton", foreground="white", background="#18181c", relief=tk.FLAT,  height=1, width=2)
+        self.prev_next_order_button_style.map("Pause.TButton", foreground=[("active", "#43d16e")], background=[("active", "#18181c")])
+
+        self.prev_next_order_button_style = ttk.Style()
+        self.prev_next_order_button_style.configure("PN.TButton", foreground="white", background="#18181c", relief=tk.FLAT,  height=1, width=2)
+        self.prev_next_order_button_style.map("PN.TButton", foreground=[("active", "#d4a748")], background=[("active", "#18181c")])
+
         # build info labels
-        self.last_order = tk.Label(self, anchor="w", text="ctrl + b -> build select", font=("Arial", 11), fg="#b5b5b5", bg="#18181c", highlightthickness=0)
-        self.prev_order = tk.Label(self, anchor="w", text="ctrl + a -> start/stop timer", font=("Arial", 11), fg="#b5b5b5", bg="#18181c", highlightthickness=0)
-        self.curr_order = tk.Label(self, anchor="w", text="GLHF!", font=("Arial", 11), fg="white", bg="#18181c", highlightthickness=0)
-        self.next_order = tk.Label(self, anchor="w", text="ctrl + p -> pause timer", font=("Arial", 11), fg="#b5b5b5", bg="#18181c", highlightthickness=0)
-        self.nwst_order = tk.Label(self, anchor="w", text="ctrl + c -> exit", font=("Arial", 11), fg="#b5b5b5", bg="#18181c", highlightthickness=0)
+        self.last_order = tk.Label(self, anchor="w", font=("Arial", 11), fg="#b5b5b5", bg="#18181c", highlightthickness=0, text="")
+        self.prev_order = tk.Label(self, anchor="w", font=("Arial", 11), fg="#d9d9d9", bg="#18181c", highlightthickness=0, text="")
+        self.curr_order = tk.Label(self, anchor="w", font=("Arial", 11), fg="#ffffff", bg="#18181c", highlightthickness=0, text="")
+        self.next_order = tk.Label(self, anchor="w", font=("Arial", 11), fg="#d9d9d9", bg="#18181c", highlightthickness=0, text="")
+        self.nwst_order = tk.Label(self, anchor="w", font=("Arial", 11), fg="#b5b5b5", bg="#18181c", highlightthickness=0, text="")
         
         self.last_order.place(x=23, y=0)
         self.prev_order.place(x=23, y=25)
@@ -77,6 +95,19 @@ class App(tk.Tk):
         self.image_next_label.place(x=0, y=75)
         self.image_nwst_label.place(x=0, y=100)
 
+        # buttons
+        self.exit_button = ttk.Button(style="Exit.TButton", text="✖",    command=self.end)
+        self.help_button = ttk.Button(style="Options.TButton", text="🛈", command=self.info_button)
+        self.pause_button = ttk.Button(style="Pause.TButton", text="⏸", command=self.pause)
+        self.prev_order_button = ttk.Button(style="PN.TButton", text="↑", command=self.prev_build_order)
+        self.next_order_button = ttk.Button(style="PN.TButton", text="↓", command=self.next_build_order)
+        
+        self.exit_button.place(x=250, y=0)
+        self.help_button.place(x=250, y=25)
+        self.pause_button.place(x=251, y=50)
+        self.prev_order_button.place(x=250, y=75)
+        self.next_order_button.place(x=250, y=100)
+        
         # variables
         self.icon_list: list[str] = self.get_icons_list()
         self.build_timings: list[str] = []
@@ -87,7 +118,6 @@ class App(tk.Tk):
         self.x: int = 20
         self.y: int = 20
 
-        self.exit_button = tk.Button(text="x", height=1, width=1, command=self.end, bg="#18181c", fg="white", highlightbackground="#18181c", relief=tk.FLAT).place(x=240, y=0)
 
         # binds
         self.bind_keys()
@@ -105,13 +135,30 @@ class App(tk.Tk):
         with open("selected_build") as file:
             self.build = file.read()
     
-    # keybinds funcs
-    def bind_keys(self):
+    # keybinds and buttons funcs
+    def bind_keys(self) -> None:
         keyboard.add_hotkey("ctrl+b", self.change_build)
         keyboard.add_hotkey("ctrl+a", self.start_stop_build_execution)
         keyboard.add_hotkey("ctrl+p", self.pause)
-        keyboard.add_hotkey("ctrl+c", self.end)
-    
+
+    def prev_build_order(self) -> None:
+        if not self.isplay: return
+        self.total_time = self.time_list[self.index - 1] if self.index - 1 >= 0 else self.total_time
+        self.update()
+
+    def next_build_order(self) -> None:
+        if not self.isplay: return
+        self.total_time = self.time_list[self.index + 1] if self.index <= len(self.time_list) - 1 else self.total_time
+        self.update()
+
+    def info_button(self) -> None:
+        if self.isplay: return
+        self.last_order.configure(text="ctrl + b -> select build")
+        self.prev_order.configure(text="ctrl + a -> start/stop timer")
+        self.curr_order.configure(text="ctrl + p -> pause/resume build")
+        self.next_order.configure(text="ctrl + [ -> previous order")
+        self.nwst_order.configure(text="ctrl + ] -> next order")
+
     def start_stop_build_execution(self) -> None:
         print("play")
         self.isplay = not self.isplay
@@ -128,12 +175,20 @@ class App(tk.Tk):
 
             if self.build in os.listdir("builds"):
 
-                self.get_build_lists()
-                self.fill_images_with_icons(0)
+                inform = False
 
-                self.play()
+                try:
+                    self.get_build_lists()
+                    self.fill_images_with_icons(0)
+                    self.play()
+                except ValueError:
+                    print("Build is broken")
+                    self.curr_order.configure(text="Build is broken")
+                    self.isplay = False
+                    inform = True
 
-                self.clear_info()
+                if not inform:
+                    self.clear_info()
                 print("stop")
                 time.sleep(0.25)
             
@@ -159,8 +214,10 @@ class App(tk.Tk):
         self.paused = not self.paused
 
         if self.paused:
+            self.pause_button.configure(text="▶️")
             print("paused")
         else:
+            self.pause_button.configure(text="⏸")
             print("unpaused")
         time.sleep(0.25)
 
@@ -183,6 +240,7 @@ class App(tk.Tk):
         self.curr_order.configure(text="")
         self.next_order.configure(text="")
         self.nwst_order.configure(text="")
+        if self.build != '': self.curr_order.configure(text=self.build)
 
         new_image = Image.open("empty.png")
         new_image = new_image.resize((22, 22), Image.BICUBIC)
@@ -347,9 +405,16 @@ class App(tk.Tk):
     # build execution func
     def play(self) -> None:
         rdy = True
-        self.get_build_lists()
-        self.place_order_to_labels(0)
+        self.index = 0
+        try:
+            self.get_build_lists()
+            self.place_order_to_labels(0)
+        except ValueError:
+            print("Build is broken")
+            self.curr_order.configure(text="Build is broken")
+            self.isplay = False
         while self.isplay:
+            self.update()
             if time.time() - self.current_time >= 1 and not self.paused:
                 self.current_time = time.time()
                 self.total_time += 1
@@ -360,15 +425,15 @@ class App(tk.Tk):
 
             for timing in self.time_list:
                 if self.total_time == timing and rdy:
-                    index = self.time_list.index(timing)
+                    self.index = self.time_list.index(timing)
 
-                    try: self.place_order_to_labels(index)
+                    try: self.place_order_to_labels(self.index)
                     except IndexError: ...
                     
-                    try: self.fill_images_with_icons(index)
+                    try: self.fill_images_with_icons(self.index)
                     except IndexError: ...
                     
-                    try:print(self.limit_list[index], self.timestr_list[index], self.unit_list[index])
+                    try:print(self.limit_list[self.index], self.timestr_list[self.index], self.unit_list[self.index])
                     except IndexError: ...
                     
                     rdy = False
@@ -381,12 +446,12 @@ class App(tk.Tk):
             if keyboard.is_pressed('ctrl') and keyboard.is_pressed('a'):
                 self.isplay = False
 
-            if keyboard.is_pressed('ctrl') and keyboard.is_pressed('c'):
-                global run
-                run = False
-                self.destroy()
+            if keyboard.is_pressed('ctrl') and keyboard.is_pressed('['):
+                self.prev_build_order()
 
-            self.update()
+            if keyboard.is_pressed('ctrl') and keyboard.is_pressed(']'):
+                self.next_build_order()
+
 
 if __name__ == '__main__':
     while run:

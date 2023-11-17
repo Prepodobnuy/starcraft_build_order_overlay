@@ -84,6 +84,10 @@ class App(tk.Tk):
         your_race_option_var = self.your_race_option_var
         enemy_race_option_var = self.enemy_race_option_var
 
+        if your_race_option_var != '' and enemy_race_option_var != '':
+            with open("lastsearch", "w+") as file:
+                file.write(f"{your_race_option_var}\n{enemy_race_option_var}")
+
         def no_nums(string:str) -> bool:
             nums = ["0","1","2","3","4","5","6","7","8","9"]
             for i in string:
@@ -289,11 +293,14 @@ class App(tk.Tk):
         self.enemy_race_option_var = tk.StringVar()
         self.options = ["Any", "Terran", "Zerg", "Protoss"]
 
-        findex = self.options.index(self.your_race_selected)
-        sindex = self.options.index(self.enemy_race_selected)
+        with open("lastsearch") as file:
+            text = file.read()
+            if text != '':
+                yrace = text.split('\n')[0]
+                erace = text.split('\n')[1]
 
-        self.yours = ttk.OptionMenu(self, self.your_race_option_var, self.options[findex], *self.options, style="Custom.TMenubutton")
-        self.enemy = ttk.OptionMenu(self, self.enemy_race_option_var, self.options[sindex], *self.options, style="Custom.TMenubutton")
+        self.yours = ttk.OptionMenu(self, self.your_race_option_var, yrace, *self.options, style="Custom.TMenubutton")
+        self.enemy = ttk.OptionMenu(self, self.enemy_race_option_var, erace, *self.options, style="Custom.TMenubutton")
 
         self.yours.place(x=247, y=175)
         self.enemy.place(x=360, y=175)
