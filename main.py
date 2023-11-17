@@ -75,13 +75,15 @@ class App(tk.Tk):
         self.curr_order.place(x=23, y=50)
         self.next_order.place(x=23, y=75)
         self.nwst_order.place(x=23, y=100)
+
+        self.load_build()
         
         # build icon pictures
-        self.last_image = ImageTk.PhotoImage(Image.open("empty.png").resize((22, 22), Image.BICUBIC))
-        self.prev_image = ImageTk.PhotoImage(Image.open("empty.png").resize((22, 22), Image.BICUBIC))
-        self.curr_image = ImageTk.PhotoImage(Image.open("empty.png").resize((22, 22), Image.BICUBIC))
-        self.next_image = ImageTk.PhotoImage(Image.open("empty.png").resize((22, 22), Image.BICUBIC))
-        self.nwst_image = ImageTk.PhotoImage(Image.open("empty.png").resize((22, 22), Image.BICUBIC))
+        self.last_image = ImageTk.PhotoImage(Image.open("images/empty.png").resize((22, 22), Image.BICUBIC))
+        self.prev_image = ImageTk.PhotoImage(Image.open("images/empty.png").resize((22, 22), Image.BICUBIC))
+        self.curr_image = ImageTk.PhotoImage(Image.open("images/empty.png").resize((22, 22), Image.BICUBIC))
+        self.next_image = ImageTk.PhotoImage(Image.open("images/empty.png").resize((22, 22), Image.BICUBIC))
+        self.nwst_image = ImageTk.PhotoImage(Image.open("images/empty.png").resize((22, 22), Image.BICUBIC))
 
         self.image_last_label = tk.Label(image=self.last_image, bg="#1b1b24")
         self.image_prev_label = tk.Label(image=self.prev_image, bg="#1b1b24")
@@ -118,11 +120,13 @@ class App(tk.Tk):
         self.x: int = 20
         self.y: int = 20
 
-
         # binds
         self.bind_keys()
         self.bind("<ButtonPress-1>", self.start_move)
         self.bind("<B1-Motion>", self.move_window)
+
+        self.load_build()
+        self.clear_info()
 
     # variable parameters funcs
     def get_icons_list(self) -> list[str]:
@@ -171,7 +175,7 @@ class App(tk.Tk):
             self.load_build()
 
             if self.build == "":
-                self.curr_order.configure(text="No Build is selected")
+                self.last_order.configure(text="No Build is selected")
 
             if self.build in os.listdir("builds"):
 
@@ -183,7 +187,7 @@ class App(tk.Tk):
                     self.play()
                 except ValueError:
                     print("Build is broken")
-                    self.curr_order.configure(text="Build is broken")
+                    self.last_order.configure(text="Build is broken")
                     self.isplay = False
                     inform = True
 
@@ -193,7 +197,7 @@ class App(tk.Tk):
                 time.sleep(0.25)
             
             else:
-                self.curr_order.configure(text="Selected build is not found")
+                self.last_order.configure(text="Selected build is not found")
 
     def change_build(self) -> None:
         print('changing build...')
@@ -202,6 +206,7 @@ class App(tk.Tk):
         time.sleep(0.25)
 
         self.load_build()
+        self.clear_info()
 
         self.update()
 
@@ -240,9 +245,9 @@ class App(tk.Tk):
         self.curr_order.configure(text="")
         self.next_order.configure(text="")
         self.nwst_order.configure(text="")
-        if self.build != '': self.curr_order.configure(text=self.build)
+        if self.build != '' and self.build in os.listdir('builds'): self.last_order.configure(text=self.build.split('.')[0])
 
-        new_image = Image.open("empty.png")
+        new_image = Image.open("images/empty.png")
         new_image = new_image.resize((22, 22), Image.BICUBIC)
 
         self.last_image = ImageTk.PhotoImage(new_image)
@@ -259,7 +264,9 @@ class App(tk.Tk):
 
     # fill icons and text fields func
     def fill_images_with_icons(self, index: int) -> None:
-        double_names = ["Ghost Academy", "Gravitic Drive", "Hydralisk", "Roach Warren", "Robotics Bay", "Robotics Facility", "Reactor"
+        double_names = ["Ghost Academy", "Gravitic Drive", "Hydralisk", "Roach Warren", "Robotics Bay", "Robotics Facility", "Reactor"]
+
+        upgrades = [
             "Terran Infantry Armor 1", "Terran Infantry Armor 2", "Terran Infantry Armor 3",
             "Terran Infantry Weapons 1", "Terran Infantry Weapons 2", "Terran Infantry Weapons 3",
             "Terran Ship Weapons 1", "Terran Ship Weapons 2", "Terran Ship Weapons 3",
@@ -274,7 +281,8 @@ class App(tk.Tk):
             "Protoss Air Weapons 1", "Protoss Air Weapons 2", "Protoss Air Weapons 3",
             "Protoss Ground Armor 1", "Protoss Ground Armor 2", "Protoss Ground Armor 3",
             "Protoss Ground Weapons 1", "Protoss Ground Weapons 2", "Protoss Ground Weapons 3",
-            "Protoss Shields 1", "Protoss Shields 2", "Protoss Shields 3"]
+            "Protoss Shields 1", "Protoss Shields 2", "Protoss Shields 3"
+            ]
         
         add_buildings = ["Tech Lab", "Reactor"]
 
@@ -286,15 +294,15 @@ class App(tk.Tk):
                         unit = add_build
                         break
                 for icon in self.icon_list:
-                    unit = unit.split(' ')[0] if ' ' in unit and not unit in double_names else unit
+                    unit = unit.split(' ')[0] if ' ' in unit and not unit in double_names and not unit in upgrades else unit
                     if unit in icon:
                         new_image = Image.open("units/"+icon)
                         new_image = new_image.resize((22, 22), Image.BICUBIC)
                         self.last_image = ImageTk.PhotoImage(new_image)
                         self.image_last_label.configure(image=self.last_image)
                         break
-            except BaseException:
-                ...
+            except BaseException: ...
+
         if index >= 1:
             try:
                 unit = self.unit_list[index-1].split(',')[0] if ',' in self.unit_list[index-1] else self.unit_list[index-1]
@@ -303,15 +311,15 @@ class App(tk.Tk):
                         unit = add_build
                         break
                 for icon in self.icon_list:
-                    unit = unit.split(' ')[0] if ' ' in unit and not unit in double_names else unit
+                    unit = unit.split(' ')[0] if ' ' in unit and not unit in double_names and not unit in upgrades else unit
                     if unit in icon:
                         new_image = Image.open("units/"+icon)
                         new_image = new_image.resize((22, 22), Image.BICUBIC)
                         self.prev_image = ImageTk.PhotoImage(new_image)
                         self.image_prev_label.configure(image=self.prev_image)
                         break
-            except BaseException:
-                ...
+            except BaseException: ...
+
         try:
             unit = self.unit_list[index].split(',')[0] if ',' in self.unit_list[index] else self.unit_list[index]
             for add_build in add_buildings:
@@ -319,15 +327,15 @@ class App(tk.Tk):
                     unit = add_build
                     break
             for icon in self.icon_list:
-                unit = unit.split(' ')[0] if ' ' in unit and not unit in double_names else unit
+                unit = unit.split(' ')[0] if ' ' in unit and not unit in double_names and not unit in upgrades else unit
                 if unit in icon:
                     new_image = Image.open("units/"+icon)
                     new_image = new_image.resize((22, 22), Image.BICUBIC)
                     self.curr_image = ImageTk.PhotoImage(new_image)
                     self.image_curr_label.configure(image=self.curr_image)
                     break
-        except BaseException:
-            ...
+        except BaseException: ...
+
         try:
             unit = self.unit_list[index+1].split(',')[0] if ',' in self.unit_list[index+1] else self.unit_list[index+1]
             for add_build in add_buildings:
@@ -335,15 +343,15 @@ class App(tk.Tk):
                     unit = add_build
                     break
             for icon in self.icon_list:
-                unit = unit.split(' ')[0] if ' ' in unit and not unit in double_names else unit
+                unit = unit.split(' ')[0] if ' ' in unit and not unit in double_names and not unit in upgrades else unit
                 if unit in icon:
                     new_image = Image.open("units/"+icon)
                     new_image = new_image.resize((22, 22), Image.BICUBIC)
                     self.next_image = ImageTk.PhotoImage(new_image)
                     self.image_next_label.configure(image=self.next_image)
                     break
-        except BaseException:
-            ...
+        except BaseException: ...
+
         try:
             unit = self.unit_list[index+2].split(',')[0] if ',' in self.unit_list[index+2] else self.unit_list[index+2]
             for add_build in add_buildings:
@@ -351,15 +359,14 @@ class App(tk.Tk):
                     unit = add_build
                     break
             for icon in self.icon_list:
-                unit = unit.split(' ')[0] if ' ' in unit and not unit in double_names else unit
+                unit = unit.split(' ')[0] if ' ' in unit and not unit in double_names and not unit in upgrades else unit
                 if unit in icon:
                     new_image = Image.open("units/"+icon)
                     new_image = new_image.resize((22, 22), Image.BICUBIC)
                     self.nwst_image = ImageTk.PhotoImage(new_image)
                     self.image_nwst_label.configure(image=self.nwst_image)
                     break
-        except BaseException:
-            ...
+        except BaseException: ...
         
         if index + 1 == len(self.unit_list):
             new_image = Image.open("empty.png")
@@ -394,13 +401,11 @@ class App(tk.Tk):
 
         try:
             self.next_order.config(text=f"{self.timestr_list[index + 1]} [{self.limit_list[index + 1]}] {self.unit_list[index + 1]}")
-        except IndexError:
-            self.next_order.config(text="...")
+        except IndexError: self.next_order.config(text="...")
 
         try:
             self.nwst_order.config(text=f"{self.timestr_list[index + 2]} [{self.limit_list[index + 2]}] {self.unit_list[index + 2]}")
-        except IndexError:
-            self.nwst_order.config(text="End")
+        except IndexError: self.nwst_order.config(text="End")
 
     # build execution func
     def play(self) -> None:

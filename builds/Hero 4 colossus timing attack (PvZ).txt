@@ -1,0 +1,60 @@
+13  0:14  Pylon
+15  0:32  Nexus (Chrono Boost)
+16  0:36  Gateway
+16  0:47  Assimilator
+20  1:24  Nexus
+20  1:28  Cybernetics Core
+21  1:45  Assimilator
+21  1:53  Pylon
+23  2:09  Adept (Chrono Boost)
+26  2:17  Stargate
+26  2:26  Warp Gate
+27  2:32  Adept
+33  2:57  Oracle
+34  3:02  Adept
+41  3:15  Pylon
+43  3:25  Gateway
+43  3:27  Oracle (Chrono Boost)
+44  3:50  Nexus
+44  3:52  Pylon
+45  3:59  Forge
+46  4:05  Assimilator x2
+48  4:15  Adept
+51  4:19  Adept
+54  4:26  Twilight Council
+55  4:36  Action
+55  4:37  Robotics Facility
+57  4:43  Adept x2
+61  4:46  Pylon
+64  5:10  Stalker x2
+69  5:16  Blink
+71  5:25  Pylon, Observer
+75  5:31  Robotics Facility
+75  5:34  Assimilator
+77  5:35  Shield Battery
+77  5:39  Assimilator
+78  5:47  Photon Cannon
+80  5:51  Warp Prism (Chrono Boost)
+80  5:52  Robotics Facility
+86  6:06  Stalker x2
+86  6:09  Gateway
+90  6:16  Pylon
+93  6:24  Disruptor (Chrono Boost), Pylon
+93  6:25  Pylon
+93  6:35  Extended Thermal Lance
+93  6:37  Gateway x2
+93  6:39  Gateway, Colossus (Chrono Boost)
+93  6:40  Action (Chrono Boost)
+102  6:54  Colossus (Chrono Boost)
+108  6:59  Pylon
+108  7:06  Gateway x2
+107  7:12  Pylon x2
+107  7:16  Stalker x3
+119  7:31  Colossus (Chrono Boost)
+119  7:36  Colossus (Chrono Boost)
+119  7:42  Stalker x3
+135  7:54  Pylon
+135  7:12  Stalker x5
+137  8:13  Stalker x2
+137  8:22  Stalker
+143  8:27  Pylon
