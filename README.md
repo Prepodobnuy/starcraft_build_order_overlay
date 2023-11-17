@@ -1,7 +1,8 @@
 ## About
 
 Overlay for StarCraft II which shows build order  
-![My Image](units/Marine.jpg)![My Image](units/Zergling.jpg)![My Image](units/Zealot.jpg)
+![My Image](units/Marine.jpg)![My Image](units/Zergling.jpg)![My Image](units/Zealot.jpg)  
+![My Image](images/preview.jpg)
 ## Dependencies:
 ```keyboard Pillow requests beautifulsoup4```
 ## Quick guide  
