@@ -25,11 +25,16 @@ and run app with sudo
 ```sudo python main.py```  
 sudo is needed because of keyboard module which is needed for hotkeys in the app.
 ### Keybinds
-ctrl + a -> starts build execution  
-ctrl + p -> pause build execution  
-ctrl + c -> closes the overlay  
-ctrl + b -> opens the builds menu  
+```ctrl + a``` -> starts build execution  
+```ctrl + p``` -> pause build execution  
+```ctrl + b``` -> opens the builds menu  
+```ctrl + [``` -> previous build order  
+```ctrl + ]``` -> next build order
 in builds menu you can install and delete builds
 ### Builds installation
-to install build you need to copy it from https://lotv.spawningtool.com/ and paste to the .txt file with any name.  
+#### Local installation
+To install build you need to copy it from spawningtool.com and paste to the .txt file with any name.  
 after this run the build helper, press ctrl + b and push the **Add Build** button
+#### Online installation
+Press "Browse for builds" button in build selecter, select matchup and push "Find builds" button.  
+Programm will show to you builds from spawningtool.com which you can download.
