@@ -1,0 +1,25 @@
+14  0:17  Pylon
+16  0:38  Gateway
+16  0:47  Assimilator
+20  1:25  Nexus
+20  1:35  Cybernetics Core
+21  1:45  Assimilator
+22  1:55  Pylon
+22  2:03  Adept (Chrono Boost)
+23  2:13  Warp Gate
+26  2:27  Robotics Facility
+28  2:45  Pylon
+31  2:59  Stalker
+37  3:15  Gateway x2
+39  3:18  Observer (Chrono Boost)
+40  3:28  Robotics Bay
+45  3:44  Stalker
+45  3:45  Assimilator x2
+57  4:19  Colossus (Chrono Boost)
+57  4:20  Stalker x3
+70  5:11  Colossus
+70  5:15  Extended Thermal Lance
+70  5:20  Gateway x5
+76  5:50  Sentry x3
+78  6:00  Warp Prism
+  7:30  Action

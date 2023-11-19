@@ -1,0 +1,24 @@
+14  0:17  Pylon
+15  0:35  Gateway
+16  0:47  Assimilator
+20  1:24  Cybernetics Core
+20  1:35  Nexus
+20  1:40  Pylon
+21  1:49  Assimilator
+21  1:57  Adept (Chrono Boost)
+21  2:00  Warp Gate
+25  2:17  Stalker (Chrono Boost)
+28  2:32  Twilight Council
+29  2:41  Stalker
+34  2:59  Robotics Facility
+37  3:19  Blink (Chrono Boost)
+38  3:23  Gateway
+38  3:25  Gateway
+40  3:39  Gateway
+40  3:45  Pylon
+40  3:47  Observer
+43  3:52  Stalker
+46  4:01  Pylon
+46  4:08  Warp Prism (Chrono Boost)
+55  4:30  Assimilator
+72  5:28  Nexus

@@ -6,11 +6,13 @@ from PIL import ImageTk, Image
 
 import keyboard
 
+from icons.icon import find_icon_path
+from icons.fixExtension import check as image_check
 
 run = True
 
 def build_parse(build_name : str):
-    with open(f"builds/{build_name}") as file:
+    with open(f"../data/builds/{build_name}") as file:
         data = file.read().split('\n')
     
     limit_list = []
@@ -46,6 +48,19 @@ class App(tk.Tk):
         self.attributes("-topmost", True)
         self.configure(bg="#18181c")
 
+        # image extension checking
+        races = ["Protoss", "Terran", "Zerg"]
+        categories = ["Buildings", "Units", "Upgrades"]
+        os.chdir("../assets/icons/")
+        for race in races:
+            os.chdir(race)
+            for category in categories:
+                os.chdir(category)
+                image_check()
+                os.chdir("..")
+            os.chdir("..")
+        os.chdir("../../src")
+
         # styles
         self.exit_button_style = ttk.Style()
         self.exit_button_style.configure("Exit.TButton", foreground="white", background="#18181c", relief=tk.FLAT,  height=1, width=2)
@@ -79,11 +94,11 @@ class App(tk.Tk):
         self.load_build()
         
         # build icon pictures
-        self.last_image = ImageTk.PhotoImage(Image.open("images/empty.png").resize((22, 22), Image.BICUBIC))
-        self.prev_image = ImageTk.PhotoImage(Image.open("images/empty.png").resize((22, 22), Image.BICUBIC))
-        self.curr_image = ImageTk.PhotoImage(Image.open("images/empty.png").resize((22, 22), Image.BICUBIC))
-        self.next_image = ImageTk.PhotoImage(Image.open("images/empty.png").resize((22, 22), Image.BICUBIC))
-        self.nwst_image = ImageTk.PhotoImage(Image.open("images/empty.png").resize((22, 22), Image.BICUBIC))
+        self.last_image = ImageTk.PhotoImage(Image.open("../assets/empty.png").resize((22, 22), Image.BICUBIC))
+        self.prev_image = ImageTk.PhotoImage(Image.open("../assets/empty.png").resize((22, 22), Image.BICUBIC))
+        self.curr_image = ImageTk.PhotoImage(Image.open("../assets/empty.png").resize((22, 22), Image.BICUBIC))
+        self.next_image = ImageTk.PhotoImage(Image.open("../assets/empty.png").resize((22, 22), Image.BICUBIC))
+        self.nwst_image = ImageTk.PhotoImage(Image.open("../assets/empty.png").resize((22, 22), Image.BICUBIC))
 
         self.image_last_label = tk.Label(image=self.last_image, bg="#1b1b24")
         self.image_prev_label = tk.Label(image=self.prev_image, bg="#1b1b24")
@@ -111,7 +126,6 @@ class App(tk.Tk):
         self.next_order_button.place(x=250, y=100)
         
         # variables
-        self.icon_list: list[str] = self.get_icons_list()
         self.build_timings: list[str] = []
 
         self.isplay: bool = False 
@@ -128,15 +142,11 @@ class App(tk.Tk):
         self.load_build()
         self.clear_info()
 
-    # variable parameters funcs
-    def get_icons_list(self) -> list[str]:
-        return os.listdir("units")
-
     def get_build_lists(self) -> None:
         self.limit_list, self.time_list, self.timestr_list, self.unit_list = build_parse(self.build)
     
     def load_build(self) -> None:
-        with open("selected_build") as file:
+        with open("../data/selected_build") as file:
             self.build = file.read()
     
     # keybinds and buttons funcs
@@ -177,7 +187,7 @@ class App(tk.Tk):
             if self.build == "":
                 self.last_order.configure(text="No Build is selected")
 
-            if self.build in os.listdir("builds"):
+            if self.build in os.listdir("../data/builds"):
 
                 inform = False
 
@@ -202,8 +212,10 @@ class App(tk.Tk):
     def change_build(self) -> None:
         print('changing build...')
 
+        os.chdir("interfaces")
         os.system("python buildselect.py")
         time.sleep(0.25)
+        os.chdir("..")
 
         self.load_build()
         self.clear_info()
@@ -245,9 +257,9 @@ class App(tk.Tk):
         self.curr_order.configure(text="")
         self.next_order.configure(text="")
         self.nwst_order.configure(text="")
-        if self.build != '' and self.build in os.listdir('builds'): self.last_order.configure(text=self.build.split('.')[0])
+        if self.build != '' and self.build in os.listdir('../data/builds'): self.last_order.configure(text=self.build.split('.')[0])
 
-        new_image = Image.open("images/empty.png")
+        new_image = Image.open("../assets/empty.png")
         new_image = new_image.resize((22, 22), Image.BICUBIC)
 
         self.last_image = ImageTk.PhotoImage(new_image)
@@ -264,124 +276,54 @@ class App(tk.Tk):
 
     # fill icons and text fields func
     def fill_images_with_icons(self, index: int) -> None:
-        double_names = ["Ghost Academy", "Gravitic Drive", "Hydralisk", "Roach Warren", "Robotics Bay", "Robotics Facility", "Reactor"]
-
-        upgrades = [
-            "Terran Infantry Armor 1", "Terran Infantry Armor 2", "Terran Infantry Armor 3",
-            "Terran Infantry Weapons 1", "Terran Infantry Weapons 2", "Terran Infantry Weapons 3",
-            "Terran Ship Weapons 1", "Terran Ship Weapons 2", "Terran Ship Weapons 3",
-            "Terran Vehicle Plating 1", "Terran Vehicle Plating 2", "Terran Vehicle Plating 3",
-            "Terran Vehicle Weapons 1", "Terran Vehicle Weapons 2", "Terran Vehicle Weapons 3",
-            "Zerg Flyer Attack 1", "Zerg Flyer Attack 2", "Zerg Flyer Attack 3",
-            "Zerg Ground Carapace 1", "Zerg Ground Carapace 2", "Zerg Ground Carapace 3",
-            "Zerg Melee Attacks 1", "Zerg Melee Attacks 2", "Zerg Melee Attacks 3",
-            "Zerg Missile Attacks 1", "Zerg Missile Attacks 2", "Zerg Missile Attacks 3",
-            "Zerg Flyer Carapace 1", "Zerg Flyer Carapace 2", "Zerg Flyer Carapace 3",
-            "Protoss Air Armor 1", "Protoss Air Armor 2", "Protoss Air Armor 3",
-            "Protoss Air Weapons 1", "Protoss Air Weapons 2", "Protoss Air Weapons 3",
-            "Protoss Ground Armor 1", "Protoss Ground Armor 2", "Protoss Ground Armor 3",
-            "Protoss Ground Weapons 1", "Protoss Ground Weapons 2", "Protoss Ground Weapons 3",
-            "Protoss Shields 1", "Protoss Shields 2", "Protoss Shields 3"
-            ]
         
-        add_buildings = ["Tech Lab", "Reactor"]
-
         if index >= 2:
             try:
-                unit = self.unit_list[index-2].split(',')[0] if ',' in self.unit_list[index-2] else self.unit_list[index-2]
-                for add_build in add_buildings:
-                    if add_build in unit:
-                        unit = add_build
-                        break
-                for icon in self.icon_list:
-                    unit = unit.split(' ')[0] if ' ' in unit and not unit in double_names and not unit in upgrades else unit
-                    if unit in icon:
-                        new_image = Image.open("units/"+icon)
-                        new_image = new_image.resize((22, 22), Image.BICUBIC)
-                        self.last_image = ImageTk.PhotoImage(new_image)
-                        self.image_last_label.configure(image=self.last_image)
-                        break
+                new_image = Image.open(find_icon_path(self.unit_list[index-2]))
+                new_image = new_image.resize((22, 22), Image.BICUBIC)
+                self.last_image = ImageTk.PhotoImage(new_image)
+                self.image_last_label.configure(image=self.last_image)
             except BaseException: ...
 
         if index >= 1:
             try:
-                unit = self.unit_list[index-1].split(',')[0] if ',' in self.unit_list[index-1] else self.unit_list[index-1]
-                for add_build in add_buildings:
-                    if add_build in unit:
-                        unit = add_build
-                        break
-                for icon in self.icon_list:
-                    unit = unit.split(' ')[0] if ' ' in unit and not unit in double_names and not unit in upgrades else unit
-                    if unit in icon:
-                        new_image = Image.open("units/"+icon)
-                        new_image = new_image.resize((22, 22), Image.BICUBIC)
-                        self.prev_image = ImageTk.PhotoImage(new_image)
-                        self.image_prev_label.configure(image=self.prev_image)
-                        break
+                new_image = Image.open(find_icon_path(self.unit_list[index-1]))
+                new_image = new_image.resize((22, 22), Image.BICUBIC)
+                self.prev_image = ImageTk.PhotoImage(new_image)
+                self.image_prev_label.configure(image=self.prev_image)
             except BaseException: ...
 
         try:
-            unit = self.unit_list[index].split(',')[0] if ',' in self.unit_list[index] else self.unit_list[index]
-            for add_build in add_buildings:
-                if add_build in unit:
-                    unit = add_build
-                    break
-            for icon in self.icon_list:
-                unit = unit.split(' ')[0] if ' ' in unit and not unit in double_names and not unit in upgrades else unit
-                if unit in icon:
-                    new_image = Image.open("units/"+icon)
-                    new_image = new_image.resize((22, 22), Image.BICUBIC)
-                    self.curr_image = ImageTk.PhotoImage(new_image)
-                    self.image_curr_label.configure(image=self.curr_image)
-                    break
+            new_image = Image.open(find_icon_path(self.unit_list[index]))
+            new_image = new_image.resize((22, 22), Image.BICUBIC)
+            self.curr_image = ImageTk.PhotoImage(new_image)
+            self.image_curr_label.configure(image=self.curr_image)
         except BaseException: ...
 
         try:
-            unit = self.unit_list[index+1].split(',')[0] if ',' in self.unit_list[index+1] else self.unit_list[index+1]
-            for add_build in add_buildings:
-                if add_build in unit:
-                    unit = add_build
-                    break
-            for icon in self.icon_list:
-                unit = unit.split(' ')[0] if ' ' in unit and not unit in double_names and not unit in upgrades else unit
-                if unit in icon:
-                    new_image = Image.open("units/"+icon)
-                    new_image = new_image.resize((22, 22), Image.BICUBIC)
-                    self.next_image = ImageTk.PhotoImage(new_image)
-                    self.image_next_label.configure(image=self.next_image)
-                    break
+            new_image = Image.open(find_icon_path(self.unit_list[index+1]))
+            new_image = new_image.resize((22, 22), Image.BICUBIC)
+            self.next_image = ImageTk.PhotoImage(new_image)
+            self.image_next_label.configure(image=self.next_image)
         except BaseException: ...
 
         try:
-            unit = self.unit_list[index+2].split(',')[0] if ',' in self.unit_list[index+2] else self.unit_list[index+2]
-            for add_build in add_buildings:
-                if add_build in unit:
-                    unit = add_build
-                    break
-            for icon in self.icon_list:
-                unit = unit.split(' ')[0] if ' ' in unit and not unit in double_names and not unit in upgrades else unit
-                if unit in icon:
-                    new_image = Image.open("units/"+icon)
-                    new_image = new_image.resize((22, 22), Image.BICUBIC)
-                    self.nwst_image = ImageTk.PhotoImage(new_image)
-                    self.image_nwst_label.configure(image=self.nwst_image)
-                    break
+            new_image = Image.open(find_icon_path(self.unit_list[index+2]))
+            new_image = new_image.resize((22, 22), Image.BICUBIC)
+            self.nwst_image = ImageTk.PhotoImage(new_image)
+            self.image_nwst_label.configure(image=self.nwst_image)
         except BaseException: ...
         
         if index + 1 == len(self.unit_list):
             new_image = Image.open("empty.png")
             new_image = new_image.resize((22, 22), Image.BICUBIC)
-
             self.next_image = ImageTk.PhotoImage(new_image)
-
             self.image_next_label.configure(image=self.next_image)
         
         if index + 2 == len(self.unit_list):
             new_image = Image.open("empty.png")
             new_image = new_image.resize((22, 22), Image.BICUBIC)
-
             self.nwst_image = ImageTk.PhotoImage(new_image)
-
             self.image_nwst_label.configure(image=self.nwst_image)
         
         self.update()

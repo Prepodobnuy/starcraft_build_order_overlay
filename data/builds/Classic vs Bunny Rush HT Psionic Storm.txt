@@ -1,0 +1,76 @@
+12  0:00  Probe
+13  0:12  Probe
+14  0:17  Pylon
+14  0:24  Probe (Chrono Boost)
+15  0:36  Gateway, Probe (Chrono Boost)
+16  0:45  Probe (Chrono Boost), Assimilator
+17  0:50  Probe
+18  1:03  Probe
+19  1:15  Probe
+20  1:23  Cybernetics Core
+20  1:32  Nexus
+20  1:40  Pylon
+20  1:43  Probe
+21  1:49  Assimilator
+21  1:55  Probe
+21  1:56  Adept (Chrono Boost)
+21  2:00  Warp Gate
+25  2:16  Adept (Chrono Boost)
+28  2:24  Twilight Council
+29  2:38  Stalker
+33  2:58  Blink (Chrono Boost)
+36  3:11  Gateway
+38  3:32  Gateway
+39  3:39  Robotics Facility
+39  3:42  Pylon
+43  4:01  Assimilator x2
+45  4:06  Stalker x2
+51  4:17  Pylon
+53  4:28  Templar Archives
+53  4:29  Observer
+52  4:46  Psionic Storm
+54  4:54  Observer
+54  4:56  Nexus
+56  5:02  Pylon
+58  5:14  Charge
+58  5:16  High Templar
+60  5:26  Gateway x2
+62  5:31  High Templar
+62  5:35  Gateway
+64  5:42  Observer
+66  5:51  High Templar
+66  5:54  Shield Battery
+68  5:58  High Templar
+68  6:00  Shield Battery
+73  6:13  Stalker
+78  6:20  Stalker x2
+78  6:25  Stalker x2
+86  6:33  Observer
+86  6:35  Gateway
+86  6:41  Zealot x2
+90  6:47  Forge
+90  6:51  Observer
+90  6:52  Zealot x4
+98  6:55  Warp Prism (Chrono Boost)
+98  6:57  Observer
+103  7:15  High Templar x2
+110  7:21  Zealot x4
+117  7:24  Assimilator x2
+117  7:26  Protoss Ground Weapons Level 1 (Chrono Boost)
+127  7:55  Robotics Facility
+127  7:56  Robotics Bay
+130  8:10  High Templar x2
+140  8:14  Archon
+144  8:22  Observer
+142  8:36  Nexus
+142  8:40  Observer
+140  8:42  Colossus x2 (Chrono Boost)
+140  8:46  Extended Thermal Lance
+150  8:50  Forge
+150  8:56  High Templar x2
+150  8:57  Photon Cannon
+155  9:20  Stalker x2
+161  9:27  Colossus x2 (Chrono Boost)
+164  9:40  Archon
+138  10:11  Observer (Chrono Boost)
+153  10:22  Colossus (Chrono Boost)
