@@ -153,7 +153,6 @@ class MainWindow(QMainWindow):
                 self.scroll_content_widget.layout().addLayout(button_layout_online)
 
         def your_change_caption():
-            print(self.your_race.text())
             if self.your_race.text() == "Zerg":
                 self.your_race.setText("Any")
             elif self.your_race.text() == "Terran":
@@ -165,6 +164,7 @@ class MainWindow(QMainWindow):
             else:
                 self.your_race.setText("Protoss")
             self.your = self.your_race.text()
+            print(self.your_race.text())
             
         def enemy_change_caption():
             if self.enemy_race.text() == "Zerg":
@@ -202,7 +202,7 @@ class MainWindow(QMainWindow):
     
     def found_builds(self):
         self.online_builds, self.online_build_names = [], []
-        self.online_build_names, self.online_builds = find_builds("Protoss", "Terran")
+        self.online_build_names, self.online_builds = find_builds(self.your, self.enemy)
 
         self.delete_tabs()
 
@@ -211,8 +211,10 @@ class MainWindow(QMainWindow):
     
     def install_online_build(self, index):
         download_build(self.online_build_names, self.online_builds, self.builds_path, index)
-        self.online_build_names.pop(index)
+        builds = self.online_build_names.pop(index)
         self.online_builds.pop(index)
+        self.installed_builds.append(builds + ".txt")
+        self.installed_build_names.append(builds)
 
         self.delete_tabs()
 

@@ -121,7 +121,7 @@ class App(tk.Tk):
         
         self.exit_button.place(x=250, y=0)
         self.help_button.place(x=250, y=25)
-        self.pause_button.place(x=251, y=50)
+        self.pause_button.place(x=250, y=50)
         self.prev_order_button.place(x=250, y=75)
         self.next_order_button.place(x=250, y=100)
         
