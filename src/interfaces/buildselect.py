@@ -1,11 +1,28 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow, QTabWidget, QWidget, QScrollArea, QPushButton
-from PyQt5.QtWidgets import QVBoxLayout, QHBoxLayout
+from PyQt5.QtWidgets import QVBoxLayout, QHBoxLayout, QProxyStyle, QStyle, QStyleFactory
 from PyQt5.QtGui import QPalette, QColor, QIcon
 
 import os
 from builds import find_builds, download_build
 
+
+class CustomStyle(QProxyStyle):
+    def drawControl(self, element, option, painter, widget=None):
+        if element == QStyle.CE_PushButton:
+            button_color = QColor(60, 60, 60)
+            option.palette.setColor(QPalette.Button, button_color)
+            option.palette.setColor(QPalette.ButtonText, QColor(200, 200, 200))
+
+        elif element == QStyle.CE_TabBarTab:
+            tab_color = QColor(50, 50, 50)
+            option.palette.setColor(QPalette.Base, tab_color)
+
+        elif element == QStyle.CE_ScrollBarSlider:
+            scrollbar_slider_color = QColor(100, 100, 100)
+            option.palette.setColor(QPalette.Highlight, scrollbar_slider_color)
+
+        return QProxyStyle.drawControl(self, element, option, painter, widget)
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -31,7 +48,15 @@ class MainWindow(QMainWindow):
         palette.setColor(QPalette.Link, QColor(42, 130, 218))
         palette.setColor(QPalette.Highlight, QColor(42, 130, 218))
         palette.setColor(QPalette.HighlightedText, QColor(0, 0, 0))
-
+        palette.setColor(QPalette.WindowText, QColor(255, 255, 255))
+        palette.setColor(QPalette.Background, QColor(30, 30, 30))
+        palette.setColor(QPalette.Highlight, QColor(100, 100, 100))
+        palette.setColor(QPalette.Button, QColor(60, 60, 60))
+        palette.setColor(QPalette.ButtonText, QColor(200, 200, 200))
+        palette.setColor(QPalette.Base, QColor(50, 50, 50))
+        palette.setColor(QPalette.Dark, QColor(100, 100, 100))
+        palette.setColor(QPalette.Highlight, QColor(100, 100, 100))
+        palette.setColor(QPalette.HighlightedText, QColor(200, 200, 200))
         self.setPalette(palette)
 
         # variables
@@ -224,6 +249,7 @@ class MainWindow(QMainWindow):
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
+    app.setStyle(QStyleFactory.create("Fusion"))
     window = MainWindow()
     window.show()
     sys.exit(app.exec_())
