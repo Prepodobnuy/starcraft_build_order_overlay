@@ -1,0 +1,118 @@
+12  0:00  Drone
+13  0:11  Overlord
+13  0:16  Drone
+14  0:30  Drone x2
+16  0:47  Hatchery
+15  0:50  Drone x2
+18  0:57  Drone
+18  1:08  Extractor
+17  1:12  Spawning Pool
+17  1:15  Drone x2
+18  1:27  Drone
+19  1:38  Drone
+20  1:56  Drone
+20  1:59  Queen x2
+20  2:00  Zergling x2
+20  2:01  Overlord
+26  2:10  Drone x2
+26  2:12  Metabolic Boost
+28  2:21  Drone x2
+30  2:31  Zergling x4
+32  2:37  Hatchery
+32  2:42  Drone
+32  2:49  Baneling Nest
+31  2:51  Overlord
+31  2:55  Drone x2
+33  3:00  Queen
+33  3:05  Drone
+36  3:10  Drone x3
+39  3:14  Overlord
+39  3:17  Zergling x6
+41  3:25  Drone
+43  3:31  Evolution Chamber
+43  3:32  Drone x2
+44  3:39  Drone x4
+48  3:47  Drone x3
+50  3:53  Roach Warren
+50  3:55  Overlord
+50  3:56  Drone
+50  3:59  Zerg Missile Weapons Level 1
+50  4:02  Drone
+52  4:05  Extractor
+52  4:06  Overlord
+52  4:09  Baneling
+51  4:10  Drone x4
+51  4:15  Zergling x2
+56  4:17  Overlord
+55  4:31  Overlord
+55  4:33  Roach x6
+67  4:39  Roach
+67  4:44  Zergling x12
+74  4:51  Zergling x6
+78  4:58  Baneling x3
+77  5:00  Drone x6
+77  5:03  Extractor x2
+77  5:07  Lair, Drone
+82  5:10  Overlord
+82  5:13  Drone x5
+83  5:16  Baneling
+83  5:20  Drone x3
+89  5:29  Overlord
+89  5:31  Drone x5
+94  5:37  Drone
+94  5:39  Roach
+97  5:44  Overlord x2
+97  5:46  Spine Crawler
+97  5:49  Roach
+98  5:56  Roach x4
+98  5:57  Extractor x2
+106  5:59  Overlord x4
+105  6:08  Overseer
+104  6:12  Zerg Missile Weapons Level 2
+104  6:16  Hatchery
+104  6:17  Pneumatized Carapace
+103  6:20  Glial Reconstitution
+103  6:23  Drone x8
+110  6:31  Evolution Chamber
+110  6:33  Roach x3
+116  6:40  Overlord
+116  6:42  Roach x3
+116  6:46  Overlord
+122  7:00  Zerg Ground Armor Level 1
+122  7:01  Queen x3
+125  7:10  Drone x8
+125  7:14  Overlord
+127  7:17  Roach x4
+135  7:25  Roach x3
+141  7:35  Roach x5
+151  7:37  Infestation Pit
+151  7:38  Spore Crawler
+151  7:41  Drone
+146  7:45  Spore Crawler x2
+146  7:47  Drone x2
+146  7:50  Spore Crawler
+145  7:53  Roach x4
+145  7:55  Queen x2
+151  8:03  Spore Crawler
+151  8:05  Drone x2
+154  8:09  Ravager x6
+154  8:12  Overlord x2, Spore Crawler
+159  8:21  Overlord
+159  8:24  Roach x4
+167  8:31  Roach x4
+175  8:35  Ravager x2
+175  8:40  Roach x6
+189  8:46  Roach
+190  8:53  Overlord
+176  9:03  Roach x9
+176  9:08  Roach x5
+182  9:14  Roach x4
+166  9:22  Roach x2
+155  9:30  Roach x5
+165  9:32  Overseer
+165  9:39  Ravager x2
+165  9:40  Roach x4
+175  9:45  Infestor
+176  9:53  Zerg Ground Armor Level 2
+176  9:57  Extractor
+176  9:58  Drone x3

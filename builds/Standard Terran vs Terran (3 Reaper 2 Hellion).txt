@@ -1,0 +1,39 @@
+12  0:00  SCV
+13  0:12  SCV
+14  0:18  Supply Depot
+14  0:24  SCV
+15  0:40  SCV
+15  0:41  Barracks
+16  0:45  Refinery
+16  0:52  SCV
+16  0:54  Refinery
+17  1:04  SCV
+18  1:16  SCV
+19  1:28  Reaper, Orbital Command
+19  1:31  Supply Depot
+20  1:42  Factory
+20  1:54  SCV
+21  2:03  Reaper
+21  2:06  SCV
+23  2:18  SCV
+23  2:21  Command Center
+24  2:28  Hellion
+26  2:32  Supply Depot
+26  2:35  Reaper
+28  2:47  Starport
+29  2:53  Hellion
+32  3:07  Barracks Reactor, Refinery
+33  3:14  Factory Tech Lab
+33  3:24  Starport Tech Lab
+34  3:33  Orbital Command
+34  3:35  Cyclone
+38  3:43  Marine x2
+40  3:49  Raven
+43  3:56  Supply Depot
+43  4:01  Marine x2
+46  4:08  Siege Tank
+52  4:19  Supply Depot, Marine x2
+56  4:32  Raven
+59  4:39  Marine x2
+59  4:45  Siege Tank
+67  4:57  Marine x2

@@ -1,0 +1,72 @@
+12  0:00  SCV
+13  0:13  SCV
+14  0:17  Supply Depot
+14  0:25  SCV
+15  0:38  SCV
+15  0:39  Barracks
+16  0:43  Refinery
+16  0:50  SCV
+16  0:52  Refinery
+17  1:02  SCV
+18  1:15  SCV
+19  1:26  Reaper
+19  1:28  Orbital Command
+20  1:43  Factory
+20  1:52  Supply Depot
+20  1:55  SCV
+20  1:59  Reaper
+22  2:07  SCV
+23  2:19  SCV
+24  2:25  Command Center
+24  2:31  Hellion
+27  2:37  Reaper
+28  2:51  Supply Depot
+29  2:52  Hellion
+31  3:02  Starport
+31  3:10  Barracks Reactor
+32  3:14  Factory Tech Lab
+33  3:32  Cyclone
+37  4:02  Starport Reactor
+35  4:03  Marine x2
+35  4:05  Siege Tank
+35  4:08  Orbital Command
+37  4:19  Command Center
+37  4:21  Marine x2
+40  4:42  Siege Tank
+40  4:44  Marine x2
+47  4:45  Viking x2
+53  4:53  Engineering Bay
+53  5:04  Barracks x2
+54  5:21  Supply Depot x2
+54  5:30  Viking x2, Siege Tank
+64  5:43  Refinery x2, Marine x2
+67  5:52  Barracks Tech Lab x2
+68  6:10  Orbital Command
+67  6:13  Barracks x2
+69  6:20  Stimpack
+69  6:21  Combat Shield
+69  6:23  Marine
+72  6:38  Marine
+72  6:39  Engineering Bay
+77  6:51  Viking x2
+77  6:52  Orbital Command
+85  7:05  Terran Infantry Armor Level 1, Terran Infantry Weapons Level 1
+86  7:10  Barracks Reactor x2
+86  7:11  Marauder
+89  7:28  Marauder
+93  7:31  Viking, Siege Tank, Medivac
+103  8:07  Armory
+103  8:17  Siege Tank, Marauder x2
+109  8:21  Medivac
+116  8:27  Refinery x2
+116  8:33  Viking
+121  8:39  Marauder
+127  8:49  Siege Tank
+127  8:51  Medivac
+132  8:57  Marauder
+139  9:15  Command Center
+139  9:19  Concussive Shells
+147  9:34  Siege Tank
+147  9:38  Factory, Marauder
+153  9:39  Viking
+157  9:54  Starport

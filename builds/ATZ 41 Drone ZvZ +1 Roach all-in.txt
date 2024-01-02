@@ -1,0 +1,19 @@
+13    Overlord
+16    Hatchery
+18    Extractor
+17    Spawning Pool
+20    Overlord
+20    Queen x2
+31    Overlord
+31    Lair
+31    Queen
+36    Evolution Chamber
+35    Roach Warren
+37    Overlord
+42    Extractor x2
+40    Zerg Missile Weapons Level 1
+43    Evolution Chamber
+46    Glial Reconstitution
+47    Overlord
+47  3:53  Roach
+90  4:50  Roach

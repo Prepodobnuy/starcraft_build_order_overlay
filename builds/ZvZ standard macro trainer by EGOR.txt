@@ -1,0 +1,93 @@
+12  0:00  Drone
+13  0:12  Overlord
+13  0:18  Drone
+14  0:31  Drone x2
+16  0:50  Hatchery
+16  0:53  Drone
+16  0:56  Drone
+17  1:00  Drone
+18  1:07  Extractor
+17  1:15  Spawning Pool
+16  1:18  Drone
+16  1:21  Drone
+18  1:28  Drone
+19  1:39  Drone
+20  1:49  Overlord
+20  2:02  Queen x2
+25  2:08  Zergling x2
+25  2:11  Zergling x2
+25  2:14  Metabolic Boost
+26  2:16  Drone
+26  2:22  Drone
+28  2:26  Drone
+29  2:32  Drone
+30  2:39  Hatchery
+30  2:42  Drone
+30  2:44  Drone
+30  2:49  Baneling Nest
+30  2:52  Overlord
+30  2:56  Drone
+30  2:57  Drone
+32  3:05  Drone
+33  3:08  Zergling x2
+33  3:12  Drone
+35  3:13  Overlord
+35  3:14  Drone x2
+35  3:19  Queen
+37  3:23  Drone
+37  3:25  Drone
+42  3:27  Drone
+42  3:28  Drone
+42  3:32  Evolution Chamber
+42  3:33  Baneling
+42  3:35  Baneling
+42  3:39  Drone x3
+45  3:46  Zergling x6
+47  3:49  Zergling x4
+47  3:54  Overlord
+49  3:59  Zerg Missile Weapons Level 1
+49  4:03  Drone, Roach Warren
+49  4:04  Drone
+49  4:08  Drone
+49  4:09  Drone
+52  4:12  Overlord
+52  4:14  Drone x2
+54  4:18  Drone x2
+54  4:19  Drone
+57  4:25  Drone x3
+57  4:30  Drone x3
+63  4:34  Extractor x2
+63  4:35  Drone x3
+64  4:40  Lair
+64  4:43  Drone
+65  4:46  Drone x3
+65  4:47  Drone
+65  4:52  Drone x3
+72  4:55  Drone, Extractor
+72  4:59  Drone
+73  5:01  Overlord x3
+73  5:10  Hatchery
+72  5:15  Drone
+72  5:18  Overlord x2, Extractor x2
+72  5:20  Drone x3
+74  5:22  Drone x2
+74  5:24  Drone
+74  5:28  Drone x2
+80  5:29  Pneumatized Carapace
+80  5:34  Drone x3
+84  5:42  Roach
+88  5:43  Roach x2
+88  5:51  Roach
+88  5:52  Roach x5
+88  5:54  Overlord
+100  6:01  Evolution Chamber
+100  6:02  Drone x2
+101  6:11  Roach x4
+109  6:17  Roach
+109  6:18  Roach x2
+117  6:25  Roach
+117  6:26  Roach x4
+117  6:29  Overlord x2
+125  6:34  Roach
+125  6:35  Overlord x2
+125  6:54  Infestation Pit

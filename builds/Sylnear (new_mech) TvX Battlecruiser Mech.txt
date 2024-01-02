@@ -1,0 +1,59 @@
+12  0:00  SCV
+13  0:12  SCV
+14  0:18  Supply Depot
+14  0:25  SCV
+15  0:39  SCV
+15  0:41  Barracks
+16  0:45  Refinery
+16  0:51  SCV
+17  1:03  SCV
+18  1:15  SCV
+19  1:28  Reaper
+19  1:29  Orbital Command
+20  1:54  Command Center, Refinery
+20  1:55  SCV
+21  2:02  Supply Depot
+21  2:07  SCV
+22  2:13  Factory
+22  2:19  SCV
+23  2:23  Barracks Reactor
+26  3:00  Starport
+26  3:06  Refinery
+26  3:08  Barracks Tech Lab
+27  3:14  Cyclone x2
+32  3:27  Orbital Command
+32  3:32  Marauder
+35  3:40  Fusion Core
+35  3:46  Cyclone
+38  3:51  Cyclone
+43  3:56  Marauder
+44  4:07  Supply Depot x2
+46  4:18  Starport Tech Lab
+48  4:43  Hellion x2
+48  4:44  Battlecruiser
+59  4:46  Marauder
+62  5:03  Command Center
+62  5:07  Supply Depot
+62  5:08  Refinery
+62  5:19  Cyclone x2
+62  5:20  Marauder
+72  5:47  Factory
+69  6:03  Hellion x2
+68  6:04  Marauder
+68  6:39  Battlecruiser
+74  6:46  Engineering Bay
+74  6:47  Factory Tech Lab
+74  6:48  Cyclone x2
+69  7:43  Marauder
+65  7:52  Siege Tank
+65  7:53  Cyclone x2
+65  7:56  Battlecruiser
+78  8:01  Factory x2
+78  8:04  Marauder, Armory x2
+80  8:34  Planetary Fortress
+84  8:58  Siege Tank
+91  9:07  Battlecruiser
+99  9:10  Marauder
+104  9:26  Factory Reactor x2
+104  9:29  Hellbat x2
+109  9:31  Marauder

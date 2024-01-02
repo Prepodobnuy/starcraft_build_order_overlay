@@ -1,0 +1,54 @@
+12  0:00  Drone
+13  0:11  Overlord
+13  0:16  Drone
+14  0:30  Drone x2
+16  0:45  Drone
+17  0:50  Hatchery
+17  0:54  Drone x2
+18  1:08  Extractor
+17  1:12  Spawning Pool
+17  1:15  Drone x2
+18  1:27  Drone
+21  1:59  Overlord
+21  2:02  Queen x2
+26  2:10  Zergling x2
+26  2:12  Metabolic Boost
+30  2:33  Hatchery
+31  2:42  Baneling Nest
+32  2:57  Overlord
+34  3:10  Zergling x2
+36  3:14  Evolution Chamber
+36  3:16  Zergling x4
+41  3:22  Queen
+41  3:26  Overlord
+51  3:54  Zergling x4
+53  3:57  Overlord
+53  4:00  Baneling
+55  4:06  Roach Warren
+57  4:13  Lair
+57  4:15  Extractor x2
+60  4:29  Extractor
+60  4:31  Roach Warren
+71  4:54  Extractor x2
+71  5:00  Zerg Melee Weapons Level 1
+76  5:19  Queen x2
+76  5:21  Evolution Chamber
+83  5:24  Queen, Infestation Pit
+85  5:39  Zergling x8
+95  5:51  Hatchery
+95  5:52  Zerg Ground Armor Level 1
+94  5:59  Baneling x8
+94  6:00  Queen x2
+107  6:18  Hive
+106  6:37  Hydralisk Den
+106  6:38  Queen
+117  7:21  Spine Crawler, Hydralisk x9
+118  7:23  Lurker Den x2
+118  7:26  Spine Crawler
+118  7:28  Queen
+125  7:35  Hydralisk
+137  7:55  Spine Crawler x2
+150  8:25  Adaptive Talons, Seismic Spines
+150  8:26  Lurker x5
+136  8:52  Hatchery
+133  8:59  Lurker x5
