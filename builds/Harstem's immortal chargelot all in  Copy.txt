@@ -1,0 +1,20 @@
+14  0:18  Pylon
+16  0:39  Gateway
+16  0:45  Assimilator
+20  1:23  Cybernetics Core
+20  1:36  Nexus
+21  1:41  Assimilator
+22  1:52  Pylon
+23  2:12  Warp Gate
+23  2:15  Gateway
+26  2:19  Robotics Facility
+26  2:48  Twilight Council
+27  2:32  Stalker
+34  3:18  Charge
+34  3:34  Immortal
+36  3:08  Warp Prism
+46  4:02  Gateway
+46  4:08  Gateway x2
+46  4:14  Gateway
+46  4:16  Pylon x2
+46  4:50  Pylon

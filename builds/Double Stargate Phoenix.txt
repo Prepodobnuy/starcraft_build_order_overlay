@@ -1,0 +1,54 @@
+6  0:00  Probe
+13  0:12  Probe
+14  0:17  Pylon
+14  0:24  Probe (Chrono Boost)
+15  0:36  Probe (Chrono Boost)
+15  0:38  Gateway
+16  0:44  Probe (Chrono Boost)
+16  0:47  Assimilator
+17  0:51  Probe
+18  1:03  Probe
+19  1:15  Probe
+20  1:23  Nexus
+20  1:33  Cybernetics Core
+20  1:35  Probe
+21  1:41  Assimilator
+21  1:47  Probe
+21  1:51  Pylon
+23  2:07  Adept (Chrono Boost)
+26  2:20  Stargate
+26  2:29  Adept
+29  2:35  Warp Gate
+34  2:59  Adept
+34  3:03  Phoenix
+40  3:07  Pylon
+41  3:15  Gateway
+43  3:28  Oracle
+49  3:45  Pylon
+50  3:50  Nexus
+50  3:55  Stargate
+50  4:04  Assimilator x2
+54  4:17  Phoenix
+54  4:21  Pylon
+58  4:38  Phoenix x2
+66  5:03  Phoenix x2 (Chrono Boost)
+71  5:13  Assimilator
+77  5:25  Phoenix x2 (Chrono Boost)
+84  5:39  Assimilator
+84  5:41  Robotics Facility x2
+87  5:49  Twilight Council
+87  5:52  Forge
+93  6:15  Gateway x4
+95  6:21  Protoss Ground Weapons Level 1 (Chrono Boost)
+95  6:23  Gateway x2
+96  6:26  Charge
+96  6:29  Immortal (Chrono Boost)
+102  6:37  Immortal (Chrono Boost)
+106  6:53  Templar Archives
+109  7:05  Immortal (Chrono Boost)
+116  7:13  Immortal (Chrono Boost)
+116  7:15  Nexus
+124  7:35  Assimilator x2
+126  7:37  High Templar x6
+141  7:44  Archon x3
+142  7:58  Observer x2

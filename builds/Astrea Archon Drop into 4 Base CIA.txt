@@ -1,0 +1,72 @@
+12  0:00  Probe
+13  0:12  Probe
+14  0:17  Pylon
+14  0:24  Probe (Chrono Boost)
+15  0:36  Probe (Chrono Boost)
+15  0:38  Gateway
+16  0:45  Probe (Chrono Boost)
+16  0:47  Assimilator
+17  0:51  Probe
+18  1:03  Probe
+19  1:15  Probe
+20  1:23  Nexus
+20  1:27  Probe
+21  1:38  Cybernetics Core
+21  1:43  Assimilator
+21  1:45  Probe
+22  1:54  Pylon
+23  2:11  Adept (Chrono Boost)
+26  2:21  Stargate
+28  2:30  Warp Gate
+30  2:39  Stalker
+37  3:07  Oracle (Chrono Boost)
+37  3:12  Pylon
+42  3:27  Shield Battery
+42  3:34  Oracle (Chrono Boost)
+47  3:43  Nexus
+47  3:47  Pylon
+49  3:57  Forge
+49  4:01  Twilight Council
+51  4:15  Assimilator x2
+51  4:17  Robotics Facility
+52  4:21  Pylon
+54  4:31  Protoss Ground Weapons Level 1 (Chrono Boost)
+55  4:40  Gateway x2
+57  4:45  Gateway
+57  4:48  Charge
+57  4:52  Zealot
+62  5:05  Templar Archives
+64  5:09  Warp Prism (Chrono Boost)
+69  5:27  Gateway x2
+72  5:49  Assimilator
+74  5:50  High Templar x2
+74  5:54  Archon
+78  6:01  High Templar x2
+78  6:02  Nexus
+83  6:05  Archon
+85  6:12  Protoss Ground Weapons Level 2 (Chrono Boost)
+85  6:16  Observer (Chrono Boost)
+89  6:29  Zealot x4
+99  6:34  Immortal (Chrono Boost), Zealot x2
+107  6:51  Zealot x3
+112  7:01  Robotics Bay
+112  7:08  Shield Battery
+112  7:10  Immortal (Chrono Boost)
+122  7:30  Assimilator x2
+122  7:31  High Templar x4
+122  7:36  Archon x2
+134  7:38  Photon Cannon
+134  7:39  Gateway x2
+134  7:47  Disruptor (Chrono Boost)
+134  7:49  Blink
+134  7:50  Shield Battery x2
+137  7:51  Photon Cannon x2
+137  8:16  Disruptor
+116  8:49  Disruptor (Chrono Boost)
+116  8:51  Stalker x5
+103  9:14  Stalker x4
+103  9:16  Disruptor (Chrono Boost)
+119  9:23  Shield Battery x2
+122  9:24  Photon Cannon x2
+122  9:43  Disruptor
+133  9:47  Nexus
