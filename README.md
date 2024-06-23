@@ -34,7 +34,7 @@ in builds menu you can install and delete builds
 ### Builds installation
 #### Local installation
 To install build you need to copy it from spawningtool.com and paste to the .txt file with any name.  
-after this run the build helper, press ctrl + b and push the **Add Build** button
+after this run the build selector, press ctrl + b and push the **Add Build** button
 #### Online installation
-Press "Browse for builds" button in build selecter, select matchup and push "Find builds" button.  
+Press "Browse for builds" button in build selector, select matchup and push "Find builds" button.  
 Programm will show to you builds from spawningtool.com which you can download.
